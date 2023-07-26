@@ -6,13 +6,17 @@ public class MovimientoPersonaje : MonoBehaviour
 {
     public float velocidadMovimiento = 5f;
     public float fuerzaSalto = 7f;
-    private bool enElsuelo = false;
 
+    public Vector3 posicionInicio { get; set; }
+
+    private bool enElsuelo = false;
     private Rigidbody2D cuerpoRigido;
     private Animator animaciones;
 
+    
     void Awake()
     {
+        posicionInicio = transform.position;
         cuerpoRigido = GetComponent<Rigidbody2D>();   
         animaciones = GetComponent<Animator>();
     }
@@ -53,6 +57,7 @@ public class MovimientoPersonaje : MonoBehaviour
         cuerpoRigido.velocity = Vector2.zero;
         cuerpoRigido.angularVelocity = 0;
         cuerpoRigido.bodyType = RigidbodyType2D.Static;
+        transform.position = posicionInicio;
         cuerpoRigido.bodyType = RigidbodyType2D.Dynamic;
     }
 }
