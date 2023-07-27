@@ -44,7 +44,7 @@ public class MovimientoPersonaje : MonoBehaviour
             animaciones.SetFloat("MovimientoHorizontal", Mathf.Abs(movimientoHorizontal));
     }
 
-    void OnCollisionEnter2D (Collision2D collision)
+    void OnCollisionStay2D (Collision2D collision)
     {
         enElsuelo = collision.gameObject.CompareTag("Suelo");
 
